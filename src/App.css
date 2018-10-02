@@ -1,0 +1,14 @@
+.todo-container {
+  border: 1px solid blue;
+  width: 70%;
+  margin: auto;
+  background-color: yellow;
+  height: auto;
+  margin-top: 2em;
+}
+.App {
+  text-align: center;
+}
+.add-button {
+  margin-left: 5px;
+}
