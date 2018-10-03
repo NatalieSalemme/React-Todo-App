@@ -1,12 +1,12 @@
 import React from 'react';
 
-const TodoInputForm = () => {
+const TodoInputForm = props =>
+  <div>
   <form onSubmit={props.newTodoSubmitHandler}>
     <input
       type="text"
       onChange={props.handleTodoInput}
       placeholder="Add todo"
-      value={props.pendingTodo}
       />
     <button
       type="submit"
@@ -14,5 +14,5 @@ const TodoInputForm = () => {
       className="add-button"
       >Add</button>
   </form>
-}
+</div>
 export default TodoInputForm;

@@ -1,13 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
 
-const TodoContainer = props =>
-  <div className="todo-container">
-    {props.todos}
-  </div>
-
-TodoContainer.propTypes = {
-  todos: PropTypes.array
+function TodoContainer(props) {
+  const todos = props.todos;
+  const listItems = todos.map((todo) =>
+    <li key={todo.toString()}>
+      {todo}
+    </li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
 }
+
+
 export default TodoContainer;
