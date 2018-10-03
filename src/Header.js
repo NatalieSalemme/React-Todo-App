@@ -6,7 +6,7 @@ const Header = props =>
     <h2>{props.title}</h2>
     <TodoInputForm
       newTodoSubmitHandler={props.newTodoSubmitHandler}
-      pendingTodo={props.pendingTodo}
+      
       handleTodoInput={props.handleTodoInput}/>
   </div>
 

@@ -26,14 +26,14 @@ class App extends Component {
 
 handleTodoInput = e =>
   this.setState({
-    pendingTodo: e.target.value
+    pendingTodo: e.target.value,
   });
 
   newTodoSubmitHandler = e => {
     e.preventDefault();
     this.setState({
       todos: [...this.state.todos, this.state.pendingTodo],
-      pendingTodo: ' '
+      pendingTodo: e.target.reset()
     });
   }
   getTodoLength = () => this.state.todos.length;
@@ -46,7 +46,6 @@ handleTodoInput = e =>
         <Header
           title={'My Todos List'}
           newTodoSubmitHandler={this.newTodoSubmitHandler}
-          pendingTodo={this.state.pendingTodo}
           handleTodoInput={this.handleTodoInput}
           />
           <p className="App">I have {todoLength} things left to do</p>
