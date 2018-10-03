@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css';
+import TodoList from './TodoList';
 
 function TodoContainer(props) {
-  const todos = props.todos;
-  const listItems = todos.map((todo) =>
-    <li key={todo.toString()}>
-      {todo}
-    </li>
-  );
   return (
-        <ul>{listItems}</ul>
+    <TodoList
+      todos = {props.todos}
+      removeTodo = {props.removeTodo}/>
   )
 }
 

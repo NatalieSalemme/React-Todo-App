@@ -12,17 +12,18 @@ class App extends Component {
     }
   }
 
-// lastTodoId = 0;
+lastTodoId = 0;
 
-// newTodoId = () => {
-//   const id = this.lastTodoId;
-//   this.lastTodoId += 1;
-//   return id;
-// }
-// removeTodo = id =>
-//   this.setState({
-//     todos: this.state.todos.filter(todo => id !== todo.id);
-//   });
+newTodoId = () => {
+  const id = this.lastTodoId;
+  this.lastTodoId += 1;
+  return id;
+}
+
+removeTodo = id =>
+  this.setState({
+    todos: this.state.todos.filter(todo => id !== todo.id)
+  });
 
 handleTodoInput = e =>
   this.setState({
@@ -44,13 +45,14 @@ handleTodoInput = e =>
       <div>
 
         <Header
-          title={'My Todos List'}
+          title={'My To-do List'}
           newTodoSubmitHandler={this.newTodoSubmitHandler}
           handleTodoInput={this.handleTodoInput}
           />
           <p className="App">I have {todoLength} things left to do</p>
         <TodoContainer
-          todos={this.state.todos}/>
+          todos={this.state.todos}
+          removeTodo={this.removeTodo}/>
       </div>
     );
   }

@@ -12,3 +12,10 @@
 .add-button {
   margin-left: 5px;
 }
+.x-delete {
+  color: red;
+}
+.x-delete:hover {
+  color: darkred;
+  cursor: pointer;
+}
