@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-// import TodoContainer from './TodoContainer';
+import TodoContainer from './TodoContainer';
 import './App.css';
 
 class App extends Component {
@@ -36,24 +36,22 @@ handleTodoInput = e =>
       pendingTodo: ' '
     });
   }
+  getTodoLength = () => this.state.todos.length;
+
   render() {
-    let todos = this.state.todos;
-    const listItems = todos.map((todo) =>
-      <li key={todo.toString()}>
-        {todo}
-      </li>
-    );
+    const todoLength = this.getTodoLength();
     return (
-      <div className="App">
+      <div>
+
         <Header
           title={'My Todos List'}
           newTodoSubmitHandler={this.newTodoSubmitHandler}
           pendingTodo={this.state.pendingTodo}
           handleTodoInput={this.handleTodoInput}
           />
-          <ul>{listItems}</ul>
-        {/* <TodoContainer
-          todos={this.state.todos}/> */}
+          <p className="App">I have {todoLength} things left to do</p>
+        <TodoContainer
+          todos={this.state.todos}/>
       </div>
     );
   }
