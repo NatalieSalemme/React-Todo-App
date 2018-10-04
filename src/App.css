@@ -5,7 +5,7 @@
 .x-delete {
   color: red;
   margin-right: 1em;
-    margin-left: -6em;
+
 }
 .x-delete:hover {
   color: darkred;
@@ -14,16 +14,10 @@
 .list-item {
   list-style-type: none;
   background-color: yellow;
-  width: 40%;
-  height: 50px;
-  margin: 2em
-}
-/* .list-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 400px;
-  border: 1px solid blue;
-  justify-content: center;
+  width: auto;
+  max-width: 80%;
+  height: auto;
   margin: auto;
-  margin-top: 2em;
-} */
+  margin-bottom: 2em;
+  text-align: left;
+}
