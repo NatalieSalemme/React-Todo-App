@@ -14,8 +14,12 @@
 }
 .x-delete {
   color: red;
+  margin-right: 1em;
 }
 .x-delete:hover {
   color: darkred;
   cursor: pointer;
+}
+.list-item {
+  list-style-type: none;
 }

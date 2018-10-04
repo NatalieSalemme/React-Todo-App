@@ -1,61 +1,50 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
+import TodoList from './TodoList';
 import Header from './Header';
-import TodoContainer from './TodoContainer';
-import './App.css';
 
-class App extends Component {
+export default class Todos extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [],
-      pendingTodo: ''
-    }
+      text: '' };
+    this.removeItem = this.removeItem.bind(this)
   }
 
-lastTodoId = 0;
-
-newTodoId = () => {
-  const id = this.lastTodoId;
-  this.lastTodoId += 1;
-  return id;
-}
-
-removeTodo = id =>
-  this.setState({
-    todos: this.state.todos.filter(todo => id !== todo.id)
-  });
-
-handleTodoInput = e =>
-  this.setState({
-    pendingTodo: e.target.value,
-  });
-
-  newTodoSubmitHandler = e => {
+  addTodo(e) {
     e.preventDefault();
     this.setState({
-      todos: [...this.state.todos, this.state.pendingTodo],
-      pendingTodo: e.target.reset()
+      todos: [ this.state.text, ...this.state.todos ],
+      text: ''
     });
   }
-  getTodoLength = () => this.state.todos.length;
 
+
+  updateValue(e) {
+    this.setState({
+      text: [e.target.value]
+    })
+  }
+  removeItem(index) {
+    const todos = this.state.todos.filter((todo, todoIndex) => {
+      return todoIndex !== index
+    })
+    this.setState({ todos })
+  }
   render() {
-    const todoLength = this.getTodoLength();
-    return (
-      <div>
-
-        <Header
-          title={'My To-do List'}
-          newTodoSubmitHandler={this.newTodoSubmitHandler}
-          handleTodoInput={this.handleTodoInput}
-          />
-          <p className="App">I have {todoLength} things left to do</p>
-        <TodoContainer
-          todos={this.state.todos}
-          removeTodo={this.removeTodo}/>
+    return(
+      <div className="App">
+        <Header title={'My To-Do\'s'} />
+        <form onSubmit = {(e) => this.addTodo(e)}>
+          <input
+            placeholder="Add Todo"
+            value={this.state.text}
+            onChange={(e) => {this.updateValue(e)}}
+            />
+          <button type="submit">Add Todo</button>
+        </form>
+        <TodoList todos={this.state.todos} removeItem={this.removeItem} />
       </div>
     );
   }
 }
-
-export default App;
