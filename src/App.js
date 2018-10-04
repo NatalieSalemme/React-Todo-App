@@ -13,10 +13,15 @@ export default class Todos extends Component {
 
   addTodo(e) {
     e.preventDefault();
-    this.setState({
-      todos: [ ...this.state.todos, this.state.text ],
-      text: ''
-    });
+    if(!this.state.text) {
+      alert('Please enter a to-do')
+    } else {
+      this.setState({
+        todos: [ ...this.state.todos, this.state.text ],
+        text: ''
+      });
+    }
+
   }
 
 
