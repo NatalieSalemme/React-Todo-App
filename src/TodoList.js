@@ -3,11 +3,14 @@ import './App.css';
 
 
 class TodoList extends React.Component {
+
   render() {
     return(
+      <div className="list-container">
       <ul>
         { this.props.todos.map((todo, index) => {
-          return <li
+          return (
+          <li
             key={todo}
             className="list-item">
 
@@ -18,8 +21,10 @@ class TodoList extends React.Component {
             </span>
             { todo }
           </li>
+        )
         })}
       </ul>
+    </div>
     );
   }
 }
