@@ -44,6 +44,9 @@ export default class Todos extends Component {
       <div className="App">
         <Header title={'My To-Do\'s'} />
         <p>I have {todoLength} things left to do</p>
+        {todoLength == 0 &&
+          <p>Hip hip Hooray!</p>
+        }
         <form onSubmit = {(e) => this.addTodo(e)}>
           <input
             placeholder="Add Todo"
