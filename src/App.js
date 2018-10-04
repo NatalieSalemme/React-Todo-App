@@ -14,7 +14,7 @@ export default class Todos extends Component {
   addTodo(e) {
     e.preventDefault();
     this.setState({
-      todos: [ this.state.text, ...this.state.todos ],
+      todos: [ ...this.state.todos, this.state.text ],
       text: ''
     });
   }
