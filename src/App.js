@@ -31,10 +31,14 @@ export default class Todos extends Component {
     })
     this.setState({ todos })
   }
+  getTodoLength = () => this.state.todos.length;
+
   render() {
+    const todoLength = this.getTodoLength();
     return(
       <div className="App">
         <Header title={'My To-Do\'s'} />
+        <p>I have {todoLength} things left to do</p>
         <form onSubmit = {(e) => this.addTodo(e)}>
           <input
             placeholder="Add Todo"
